@@ -1,0 +1,11 @@
+C:\Users\alefe\OneDrive\Área de Trabalho\PDV-Caixa\PDV\bin\Debug\PDV.exe.config
+C:\Users\alefe\OneDrive\Área de Trabalho\PDV-Caixa\PDV\bin\Debug\PDV.exe
+C:\Users\alefe\OneDrive\Área de Trabalho\PDV-Caixa\PDV\bin\Debug\PDV.pdb
+C:\Users\alefe\OneDrive\Área de Trabalho\PDV-Caixa\PDV\obj\Debug\PDV.csproj.AssemblyReference.cache
+C:\Users\alefe\OneDrive\Área de Trabalho\PDV-Caixa\PDV\obj\Debug\PDV.FrmPrincipal.resources
+C:\Users\alefe\OneDrive\Área de Trabalho\PDV-Caixa\PDV\obj\Debug\PDV.Properties.Resources.resources
+C:\Users\alefe\OneDrive\Área de Trabalho\PDV-Caixa\PDV\obj\Debug\PDV.csproj.GenerateResource.cache
+C:\Users\alefe\OneDrive\Área de Trabalho\PDV-Caixa\PDV\obj\Debug\PDV.csproj.CoreCompileInputs.cache
+C:\Users\alefe\OneDrive\Área de Trabalho\PDV-Caixa\PDV\obj\Debug\PDV.exe
+C:\Users\alefe\OneDrive\Área de Trabalho\PDV-Caixa\PDV\obj\Debug\PDV.pdb
+C:\Users\alefe\OneDrive\Área de Trabalho\PDV-Caixa\PDV\obj\Debug\PDV.Forms.FrmProduto.resources
