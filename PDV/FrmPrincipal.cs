@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,11 +18,24 @@ namespace PDV
         private Random random;
         private int tempIndex;
         private Form activeForm;
+
+        //Construtor
         public FrmPrincipal()
         {
             InitializeComponent();
             random = new Random();
+            btnCloseChildForm.Visible = false;
+            this.Text = string.Empty;
+            this.ControlBox = false;
+
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
 
         //metodo p/ Selecionar uma cor aleatoria p/ o tema da lista de cores (pode usar uma cor se quiser)
         private Color SelectThemeColor()
@@ -47,6 +61,7 @@ namespace PDV
                     currentButton.BackColor = color;
                     currentButton.ForeColor = Color.White;
                     currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    btnCloseChildForm.Visible = true;
                 }
             }
         }
@@ -83,7 +98,7 @@ namespace PDV
         private void btnProduto_Click(object sender, EventArgs e)
         {
             //ActivateButton(sender);
-            openChildForm(new Forms.FrmProduto(), sender);
+            openChildForm(new Forms.FrmProdutos(), sender);
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
@@ -93,7 +108,8 @@ namespace PDV
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            //ActivateButton(sender);
+            openChildForm(new Forms.FrmClientes(), sender);
         }
 
         private void btnMovimentacoes_Click(object sender, EventArgs e)
@@ -109,6 +125,27 @@ namespace PDV
         private void btnRelatorios_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+        }
+
+        private void btnCloseChildForm_Click(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+
+            Reset();
+        }
+        private void Reset()
+        {
+            DisableButton();
+            lblTitle.Text = "HOME";
+            currentButton = null;
+            btnCloseChildForm.Visible = false;
+        }
+
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

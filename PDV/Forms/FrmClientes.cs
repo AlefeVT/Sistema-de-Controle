@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PDV.Forms
 {
-    public partial class FrmProduto : Form
+    public partial class FrmClientes : Form
     {
-        public FrmProduto()
+        public FrmClientes()
         {
             InitializeComponent();
         }

@@ -1,7 +1,7 @@
 ﻿
 namespace PDV.Forms
 {
-    partial class FrmProduto
+    partial class FrmProdutos
     {
         /// <summary>
         /// Required designer variable.
