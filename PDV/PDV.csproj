@@ -114,5 +114,32 @@
   <ItemGroup>
     <None Include="Resources\return.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carrin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Users1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clientes1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\movimentacao1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pc1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Relatorios1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

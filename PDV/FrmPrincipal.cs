@@ -147,5 +147,22 @@ namespace PDV
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMaximizar_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+                this.WindowState = FormWindowState.Maximized;
+            else
+                this.WindowState = FormWindowState.Normal;
+        }
+
+        private void btnMinimiza_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
