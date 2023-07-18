@@ -98,18 +98,18 @@ namespace PDV
         private void btnProduto_Click(object sender, EventArgs e)
         {
             //ActivateButton(sender);
-            openChildForm(new Forms.FrmProdutos(), sender);
+            //openChildForm(new cadastros.FrmProdutos(), sender);
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            openChildForm(new cadastros.FrmFuncionarios(), sender);
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
             //ActivateButton(sender);
-            openChildForm(new Forms.FrmClientes(), sender);
+            openChildForm(new cadastros.FrmClientes(), sender);
         }
 
         private void btnMovimentacoes_Click(object sender, EventArgs e)
@@ -149,7 +149,12 @@ namespace PDV
         }
         private void btnFechar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            var res = MessageBox.Show("Deseja realmente Fechar O Sistema ?", "Fechar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+
         }
 
         private void btnMaximizar_Click(object sender, EventArgs e)
@@ -163,6 +168,27 @@ namespace PDV
         private void btnMinimiza_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCargos_Click(object sender, EventArgs e)
+        {
+            openChildForm(new cadastros.FrmCargo(), sender);
+        }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            statusData.Text = DateTime.Today.ToString("dd/MM/yyyy");
+            statusHora.Text = DateTime.Now.ToString("HH:mm:ss");
+
+            lblUsuario.Text = Verificar.NomeUsuario;
+            lblCargo.Text = Verificar.CargoUsuario;
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            statusData.Text = DateTime.Today.ToString("dd/MM/yyyy");
+
+            statusHora.Text = DateTime.Now.ToString("HH:mm:ss");
         }
     }
 }
