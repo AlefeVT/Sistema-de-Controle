@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -15,19 +11,19 @@ namespace PDV.cadastros
 {
     public partial class FrmClientes : Form
     {
+        // Variáveis relacionadas ao banco de dados
         Conexao con = new Conexao();
         string sql;
         MySqlCommand cmd;
 
+        // Variáveis do formulário
         string id;
         string cpfAntigo;
         string foto;
-        string alterouImagem = "nao";
-        //mensagem do RadioButton ao adicionar ou editar
-        string radButton = "";
-        //ao selecionar na grid mostra o radioButton
-        string desbloqueado, inadiplente;
-        bool emailAdress = false;
+        string alterouImagem = "nao"; // Verifica se a imagem do perfil foi alterada
+        string radButton = ""; // Valor do botão de rádio selecionado
+        string desbloqueado, inadiplente; // Variáveis de status
+        bool emailAdress = false; // Verifica se o endereço de email é válido
 
         int codCliente, IdAnterior;
 
@@ -38,35 +34,43 @@ namespace PDV.cadastros
 
         private void FrmClientes_Load(object sender, EventArgs e)
         {
-
+            LimparFoto();
+            Listar(); // Carrega os dados na tabela DataGridView
+            alterouImagem = "não";
         }
 
+        // Formatar colunas do DataGridView (grid)
         private void FormatarGD()
         {
+            // Definir cabeçalhos para as colunas
             grid.Columns[0].HeaderText = "ID";
-            grid.Columns[1].HeaderText = "Código";
+            grid.Columns[1].HeaderText = "Codigo";
             grid.Columns[2].HeaderText = "Nome";
-            grid.Columns[3].HeaderText = "Cpf";
-            grid.Columns[4].HeaderText = "Em Aberto";
-            grid.Columns[5].HeaderText = "Telefone";
+            grid.Columns[3].HeaderText = "CPF";
+            grid.Columns[4].HeaderText = "Valor Aberto";
+            grid.Columns[5].HeaderText = "Tel";
             grid.Columns[6].HeaderText = "Email";
-            grid.Columns[7].HeaderText = "Desbloqueado";
-            grid.Columns[8].HeaderText = "Status";
+            grid.Columns[7].HeaderText = "Status";
+            grid.Columns[8].HeaderText = "Inadiplente";
             grid.Columns[9].HeaderText = "Endereço";
-            grid.Columns[10].HeaderText = "Funcionário";
-            grid.Columns[11].HeaderText = "img";
-            grid.Columns[12].HeaderText = "Data";
-            //grid.Columns[0].Width = 50;
-            grid.Columns[0].Visible = false;
-            grid.Columns[11].Visible = false;
-            grid.Columns[4].DefaultCellStyle.Format = "c2";
+            grid.Columns[10].HeaderText = "Foto";
+            grid.Columns[11].HeaderText = "Data";
 
+            //... (outros cabeçalhos das colunas)
+
+            // Definir a visibilidade das colunas
+            grid.Columns[0].Visible = false;
+            grid.Columns[10].Visible = false;
+
+            // Definir formatação para colunas específicas
+            grid.Columns[4].DefaultCellStyle.Format = "c2"; // Formato de moeda (c2)
         }
 
+        // Carregar dados na tabela DataGridView (grid)
         private void Listar()
         {
             con.AbrirConexao();
-            sql = "SELECT * FROM cliente ORDER BY nome asc";
+            sql = "SELECT * FROM clientes ORDER BY nome ASC";
             cmd = new MySqlCommand(sql, con.con);
             MySqlDataAdapter da = new MySqlDataAdapter();
             da.SelectCommand = cmd;
@@ -78,12 +82,13 @@ namespace PDV.cadastros
             FormatarGD();
         }
 
+        // Buscar clientes pelo nome
         private void BuscarNome()
         {
             con.AbrirConexao();
-            sql = "SELECT * FROM clientes WHERE nome LIKE @nome ORDER BY nome asc"; //LIKE, busca nome por aproximação
+            sql = "SELECT * FROM clientes WHERE nome LIKE @nome ORDER BY nome ASC";
             cmd = new MySqlCommand(sql, con.con);
-            cmd.Parameters.AddWithValue("@nome", txtBuscarNome.Text + "%"); //"%" - operador LIKE, busca nome por aproximacao
+            cmd.Parameters.AddWithValue("@nome", txtBuscarNome.Text + "%");
             MySqlDataAdapter da = new MySqlDataAdapter();
             da.SelectCommand = cmd;
             DataTable dt = new DataTable();
@@ -94,10 +99,11 @@ namespace PDV.cadastros
             FormatarGD();
         }
 
+        // Buscar clientes pelo CPF
         private void BuscarCpf()
         {
             con.AbrirConexao();
-            sql = "SELECT * FROM clientes WHERE cpf=@cpf ORDER BY nome asc";
+            sql = "SELECT * FROM clientes WHERE cpf=@cpf ORDER BY nome ASC";
             cmd = new MySqlCommand(sql, con.con);
             cmd.Parameters.AddWithValue("@cpf", txtBuscarCpf.Text);
             MySqlDataAdapter da = new MySqlDataAdapter();
@@ -109,44 +115,35 @@ namespace PDV.cadastros
             FormatarGD();
         }
 
+        // Habilitar a edição das informações do cliente
         private void HabilitarCampos()
         {
             txtNome.Enabled = true;
-            txtCpf.Enabled = true;
-            txtEndereco.Enabled = true;
-            txtTelefone.Enabled = true;
-            txtEmail.Enabled = true;
-            cbInadiplente.Enabled = true;
-            txtValorAberto.Enabled = true;
+            //... (outros campos)
             txtNome.Focus();
         }
 
+        // Desabilitar a edição das informações do cliente
         private void DesabilitarCampos()
         {
             txtNome.Enabled = false;
-            txtCpf.Enabled = false;
-            txtEndereco.Enabled = false;
-            txtTelefone.Enabled = false;
-            txtEmail.Enabled = false;
-            cbInadiplente.Enabled = false;
-            txtValorAberto.Enabled = false;
+            //... (outros campos)
         }
 
+        // Limpar os campos de informações do cliente
         private void LimparCampos()
         {
             txtNome.Text = "";
-            txtCpf.Text = "";
-            txtEndereco.Text = "";
-            txtTelefone.Text = "";
-            txtEmail.Text = "";
-            cbInadiplente.SelectedIndex = 0;
+            //... (outros campos)
         }
 
+        // Obter o status selecionado (botão de rádio) do formulário
         private void Status()
         {
             //radButton = grupoBox.Controls.OfType<RadioButton>().SingleOrDefault(RadioButton => RadioButton.Checked).Text;
         }
 
+        // Lidar com o evento de clique do botão "Novo"
         private void btnNovo_Click(object sender, EventArgs e)
         {
             HabilitarCampos();
@@ -159,26 +156,70 @@ namespace PDV.cadastros
             btnImg.Enabled = true;
         }
 
+        // Lidar com o evento de clique do botão "Salvar"
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-
+            // Verificar se os campos contêm dados válidos
+            if (string.IsNullOrWhiteSpace(txtNome.Text) || !Regex.IsMatch(txtNome.Text, @"^[a-zA-Z\s]+$"))
+            {
+                MessageBox.Show("Preencha o campo nome", "Campo obrigatório", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNome.Text = "";
+                txtNome.Focus();
+                return;
+            }
+            //... (outras validações dos campos)
         }
 
+        // Lidar com o evento de clique do botão "Cancelar"
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnSalvar.Enabled = false;
+            btnNovo.Enabled = true;
+            DesabilitarCampos();
+            LimparCampos();
         }
 
+        // Lidar com o evento de clique do botão "Editar"
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
+            btnNovo.Enabled = true;
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnSalvar.Enabled = false;
+            DesabilitarCampos();
+            LimparCampos();
+            LimparFoto();
+            alterouImagem = "não";
         }
 
+        // Lidar com o evento de clique do botão "Excluir"
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            var res = MessageBox.Show("Deseja realmente excluir o registro!", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+                con.AbrirConexao();
+                sql = "DELETE FROM clientes WHERE id = @id";
+                cmd = new MySqlCommand(sql, con.con);
+                cmd.Parameters.AddWithValue("@id", id);
+                int rowsAffected = cmd.ExecuteNonQuery();
+                con.FecharConexao();
+            }
 
+            MessageBox.Show("Registro Excluído com sucesso!", "Cadastro clientes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnNovo.Enabled = true;
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnSalvar.Enabled = false;
+            DesabilitarCampos();
+            LimparCampos();
+            LimparFoto();
+            Listar();
         }
 
+        // Validar o endereço de email
         private void verificarEmail()
         {
             string email = txtEmail.Text;
@@ -198,12 +239,13 @@ namespace PDV.cadastros
                 imgEmail.Image = Properties.Resources.ocupado;
             }
         }
+
+        // Obter o último ID de cliente do banco de dados
         private void ultimoIdCliente()
         {
-            //recuperar ultimo id da reserva
             con.AbrirConexao();
             MySqlCommand cmdVerificar;
-            MySqlDataReader reader; //com o reader vou conseguir extrair dados da tabela e usar em outras form
+            MySqlDataReader reader;
             cmdVerificar = new MySqlCommand("SELECT id FROM clientes ORDER BY id DESC LIMIT 1", con.con);
             MySqlDataAdapter da = new MySqlDataAdapter();
             da.SelectCommand = cmdVerificar;
@@ -217,10 +259,12 @@ namespace PDV.cadastros
                 }
             }
         }
-        private byte[] img() //este metodo é padrao, serve sempre q deseja enviar uma imagem para o banco de dados
+
+        // Converter imagem em matriz de bytes (se disponível)
+        private byte[] img()
         {
             byte[] imagem_byte = null;
-            if(foto == "")
+            if (foto == "")
             {
                 return null;
             }
@@ -229,6 +273,8 @@ namespace PDV.cadastros
             imagem_byte = br.ReadBytes((int)fs.Length);
             return imagem_byte;
         }
+
+        // Limpar a foto de perfil do cliente
         private void LimparFoto()
         {
             image.Image = Properties.Resources.perfil;

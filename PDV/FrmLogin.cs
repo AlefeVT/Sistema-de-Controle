@@ -37,7 +37,7 @@ namespace PDV
                 con.AbrirConexao();
                 MySqlCommand cmdVerificar;
                 MySqlDataReader reader; //com o reader vou conseguir extrair dados da tabela e usar em outros form
-                cmdVerificar = new MySqlCommand("SELECT * FROM usuarios WHERE usuario + @usuario AND senha = @senha", con.con);
+                cmdVerificar = new MySqlCommand("SELECT * FROM usuarios WHERE usuario = @usuario AND senha = @senha", con.con);
                 MySqlDataAdapter da = new MySqlDataAdapter();
                 da.SelectCommand = cmdVerificar;
                 cmdVerificar.Parameters.AddWithValue("@usuario", txtUsuario.Text);
@@ -45,16 +45,21 @@ namespace PDV
                 reader = cmdVerificar.ExecuteReader();
                 if (reader.HasRows)
                 {
+                    //extraíndo dados do login
                     while (reader.Read())
                     {
                         Verificar.NomeUsuario = Convert.ToString(reader["usuario"]);
                         Verificar.CargoUsuario = Convert.ToString(Convert.ToString(reader["cargo"]));
 
+                        FrmPrincipal pdv = new FrmPrincipal();
+                        pdv.Show();
+                        this.Hide();
                     }
-
-                    FrmPrincipal pdv = new FrmPrincipal();
-                    pdv.Show();
-                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Usuário ou Senha inválidos");
+                    return;
                 }
                 con.FecharConexao();
             }
@@ -63,14 +68,16 @@ namespace PDV
 
                 throw;
             }
-
-            FrmPrincipal frm = new FrmPrincipal();
-            frm.ShowDialog();
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             chamarLogin();
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

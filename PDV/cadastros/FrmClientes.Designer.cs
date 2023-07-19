@@ -51,7 +51,7 @@ namespace PDV.cadastros
             this.label4 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCod = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtBuscarCpf = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -76,7 +76,7 @@ namespace PDV.cadastros
             this.grid.RowHeadersWidth = 51;
             this.grid.RowTemplate.Height = 24;
             this.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid.Size = new System.Drawing.Size(831, 230);
+            this.grid.Size = new System.Drawing.Size(1060, 230);
             this.grid.TabIndex = 65;
             // 
             // btnCancelar
@@ -102,7 +102,7 @@ namespace PDV.cadastros
             // txtTelefone
             // 
             this.txtTelefone.Enabled = false;
-            this.txtTelefone.Location = new System.Drawing.Point(629, 43);
+            this.txtTelefone.Location = new System.Drawing.Point(586, 66);
             this.txtTelefone.Margin = new System.Windows.Forms.Padding(2);
             this.txtTelefone.Mask = "(99) 00000-0000";
             this.txtTelefone.Name = "txtTelefone";
@@ -112,7 +112,7 @@ namespace PDV.cadastros
             // txtCpf
             // 
             this.txtCpf.Enabled = false;
-            this.txtCpf.Location = new System.Drawing.Point(500, 40);
+            this.txtCpf.Location = new System.Drawing.Point(586, 39);
             this.txtCpf.Margin = new System.Windows.Forms.Padding(2);
             this.txtCpf.Mask = "000.000.000-00";
             this.txtCpf.Name = "txtCpf";
@@ -122,7 +122,7 @@ namespace PDV.cadastros
             // btnImg
             // 
             this.btnImg.Enabled = false;
-            this.btnImg.Location = new System.Drawing.Point(746, 138);
+            this.btnImg.Location = new System.Drawing.Point(978, 140);
             this.btnImg.Margin = new System.Windows.Forms.Padding(2);
             this.btnImg.Name = "btnImg";
             this.btnImg.Size = new System.Drawing.Size(76, 31);
@@ -181,7 +181,7 @@ namespace PDV.cadastros
             // 
             this.cbInadiplente.Enabled = false;
             this.cbInadiplente.FormattingEnabled = true;
-            this.cbInadiplente.Location = new System.Drawing.Point(629, 113);
+            this.cbInadiplente.Location = new System.Drawing.Point(746, 15);
             this.cbInadiplente.Margin = new System.Windows.Forms.Padding(2);
             this.cbInadiplente.Name = "cbInadiplente";
             this.cbInadiplente.Size = new System.Drawing.Size(79, 21);
@@ -200,7 +200,7 @@ namespace PDV.cadastros
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(603, 47);
+            this.label7.Location = new System.Drawing.Point(555, 70);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(22, 13);
@@ -222,7 +222,7 @@ namespace PDV.cadastros
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(566, 116);
+            this.label6.Location = new System.Drawing.Point(683, 18);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 13);
@@ -233,7 +233,7 @@ namespace PDV.cadastros
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(473, 43);
+            this.label5.Location = new System.Drawing.Point(555, 43);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(27, 13);
@@ -302,20 +302,20 @@ namespace PDV.cadastros
             this.label8.TabIndex = 70;
             this.label8.Text = "Cód";
             // 
-            // textBox2
+            // txtCod
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(390, 40);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(65, 20);
-            this.textBox2.TabIndex = 71;
+            this.txtCod.Enabled = false;
+            this.txtCod.Location = new System.Drawing.Point(390, 40);
+            this.txtCod.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCod.Name = "txtCod";
+            this.txtCod.Size = new System.Drawing.Size(65, 20);
+            this.txtCod.TabIndex = 71;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(407, 11);
+            this.label9.Location = new System.Drawing.Point(501, 15);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(81, 13);
@@ -325,7 +325,7 @@ namespace PDV.cadastros
             // txtBuscarCpf
             // 
             this.txtBuscarCpf.Enabled = false;
-            this.txtBuscarCpf.Location = new System.Drawing.Point(500, 8);
+            this.txtBuscarCpf.Location = new System.Drawing.Point(586, 11);
             this.txtBuscarCpf.Margin = new System.Windows.Forms.Padding(2);
             this.txtBuscarCpf.Mask = "000.000.000-00";
             this.txtBuscarCpf.Name = "txtBuscarCpf";
@@ -336,7 +336,7 @@ namespace PDV.cadastros
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(560, 83);
+            this.label10.Location = new System.Drawing.Point(517, 94);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 13);
@@ -346,7 +346,7 @@ namespace PDV.cadastros
             // txtValorAberto
             // 
             this.txtValorAberto.Enabled = false;
-            this.txtValorAberto.Location = new System.Drawing.Point(629, 80);
+            this.txtValorAberto.Location = new System.Drawing.Point(586, 94);
             this.txtValorAberto.Margin = new System.Windows.Forms.Padding(2);
             this.txtValorAberto.Name = "txtValorAberto";
             this.txtValorAberto.Size = new System.Drawing.Size(79, 20);
@@ -356,7 +356,7 @@ namespace PDV.cadastros
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radioButton1.Location = new System.Drawing.Point(340, 133);
+            this.radioButton1.Location = new System.Drawing.Point(746, 53);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(94, 17);
             this.radioButton1.TabIndex = 77;
@@ -368,7 +368,7 @@ namespace PDV.cadastros
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radioButton2.Location = new System.Drawing.Point(340, 166);
+            this.radioButton2.Location = new System.Drawing.Point(746, 76);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(76, 17);
             this.radioButton2.TabIndex = 78;
@@ -392,7 +392,7 @@ namespace PDV.cadastros
             // 
             this.image.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.image.Image = global::PDV.Properties.Resources.sem_foto;
-            this.image.Location = new System.Drawing.Point(724, 6);
+            this.image.Location = new System.Drawing.Point(953, 8);
             this.image.Margin = new System.Windows.Forms.Padding(2);
             this.image.Name = "image";
             this.image.Size = new System.Drawing.Size(120, 128);
@@ -405,7 +405,7 @@ namespace PDV.cadastros
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(854, 495);
+            this.ClientSize = new System.Drawing.Size(1083, 495);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.imgEmail);
@@ -413,7 +413,7 @@ namespace PDV.cadastros
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtBuscarCpf);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtCod);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label4);
@@ -473,7 +473,7 @@ namespace PDV.cadastros
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox txtEmail;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtCod;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MaskedTextBox txtBuscarCpf;
         private System.Windows.Forms.Label label10;

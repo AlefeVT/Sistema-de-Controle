@@ -14,33 +14,39 @@ namespace PDV.cadastros
 {
     public partial class FrmFuncionarios : Form
     {
-        Conexao con = new Conexao();
-        string sql;
-        MySqlCommand cmd;
-        string id;
-
-        string foto;
-        string alterouImagem = "não";
-        string cpfAntigo;
+        // Conexão com o banco de dados e outras variáveis
+        private Conexao con = new Conexao();
+        private string sql;
+        private MySqlCommand cmd;
+        private string id;
+        private string foto;
+        private string alterouImagem = "não";
+        private string cpfAntigo;
 
         public FrmFuncionarios()
         {
             InitializeComponent();
         }
 
+        // Evento de carregamento do formulário
         private void FrmFuncionarios_Load(object sender, EventArgs e)
         {
+            // Limpar a foto do funcionário
             LimparFoto();
+            // Listar funcionários
             Listar();
+            // Listar os cargos disponíveis
             ListarCargos();
             alterouImagem = "não";
             cb_Cargo.Text = "Selecione um Cargo";
         }
 
+        // Recuperar e listar os funcionários
         private void Listar()
         {
+            // Abrir conexão com o banco de dados
             con.AbrirConexao();
-            sql = "SELECT * FROM funcionarios ORDER BY nome asc";
+            sql = "SELECT * FROM funcionarios ORDER BY nome ASC";
             cmd = new MySqlCommand(sql, con.con);
             MySqlDataAdapter da = new MySqlDataAdapter();
             da.SelectCommand = cmd;
@@ -49,27 +55,30 @@ namespace PDV.cadastros
             grid.DataSource = dt;
             con.FecharConexao();
 
+            // Formatar a grade de dados
             FormatarGD();
         }
 
+        // Listar os cargos disponíveis
         private void ListarCargos()
         {
+            // Abrir conexão com o banco de dados
             con.AbrirConexao();
-            sql = "SELECT * FROM cargos ORDER BY cargo asc";
+            sql = "SELECT * FROM cargos ORDER BY cargo ASC";
             cmd = new MySqlCommand(sql, con.con);
             MySqlDataAdapter da = new MySqlDataAdapter();
             da.SelectCommand = cmd;
             DataTable dt = new DataTable();
             da.Fill(dt);
             cb_Cargo.DataSource = dt;
-            //cbCargo.ValueMember = "id";
             cb_Cargo.DisplayMember = "cargo";
             con.FecharConexao();
         }
 
-
+        // Formatar a grade de dados
         private void FormatarGD()
         {
+            // Cabeçalhos das colunas
             grid.Columns[0].HeaderText = "ID";
             grid.Columns[1].HeaderText = "Colaborador";
             grid.Columns[2].HeaderText = "CPF";
@@ -79,6 +88,7 @@ namespace PDV.cadastros
             grid.Columns[6].HeaderText = "Data";
             grid.Columns[7].HeaderText = "Foto";
 
+            // Ocultar colunas desnecessárias
             grid.Columns[0].Visible = false;
             grid.Columns[7].Visible = false;
 
@@ -98,9 +108,10 @@ namespace PDV.cadastros
             grid.Columns[6].ReadOnly = true;
         }
 
-
+        // Salvar dados do funcionário
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            // Verificar campos obrigatórios e validações
             if (string.IsNullOrWhiteSpace(txt_Nome.Text) || !System.Text.RegularExpressions.Regex.IsMatch(txt_Nome.Text, @"^[a-zA-Z\s]+$"))
             {
                 MessageBox.Show("Preencha o campo nome", "Cadastro funcionários", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -108,7 +119,6 @@ namespace PDV.cadastros
                 txt_Nome.Focus();
                 return;
             }
-
 
             if (txt_Cpf.Text == "   ,   ,   -" || txt_Cpf.Text.Length < 14)
             {
@@ -124,6 +134,7 @@ namespace PDV.cadastros
                 return;
             }
 
+            // Inserir dados do funcionário no banco de dados
             con.AbrirConexao();
             sql = "INSERT INTO funcionarios(nome, cpf, telefone, cargo, endereco, data, foto) VALUES(@nome, @cpf, @telefone, @cargo, @endereco, curDate(), @foto)";
             cmd = new MySqlCommand(sql, con.con);
@@ -150,6 +161,7 @@ namespace PDV.cadastros
             DesabilitarCampos();
         }
 
+        // Desabilitar campos de entrada
         private void DesabilitarCampos()
         {
             txt_Nome.Enabled = false;
@@ -159,6 +171,7 @@ namespace PDV.cadastros
             cb_Cargo.Enabled = false;
         }
 
+        // Selecionar uma foto para o funcionário
         private void btnFoto_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -171,6 +184,7 @@ namespace PDV.cadastros
             }
         }
 
+        // Converter foto para um array de bytes
         private byte[] img()
         {
             byte[] image_byte = null;
@@ -185,12 +199,14 @@ namespace PDV.cadastros
             return image_byte;
         }
 
+        // Limpar a foto
         private void LimparFoto()
         {
             image.Image = Properties.Resources.perfil;
-            foto = "img/sem_foto.png";
+            foto = "Resources/sem_foto.png";
         }
 
+        // Habilitar campos de entrada para adicionar um novo funcionário
         private void btnNovo_Click(object sender, EventArgs e)
         {
             HabilitarCampos();
@@ -198,6 +214,7 @@ namespace PDV.cadastros
             txt_Nome.Focus();
         }
 
+        // Habilitar campos de entrada
         private void HabilitarCampos()
         {
             btnSalvar.Enabled = true;
@@ -211,6 +228,7 @@ namespace PDV.cadastros
             btnNovo.Enabled = false;
         }
 
+        // Limpar campos de entrada
         private void LimparCampos()
         {
             txt_Nome.Text = "";
@@ -219,6 +237,7 @@ namespace PDV.cadastros
             txt_Telefone.Text = "";
         }
 
+        // Evento de clique na grade de dados para selecionar uma linha e carregar os dados do funcionário nos campos de entrada
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -228,7 +247,6 @@ namespace PDV.cadastros
                 btnExcluir.Enabled = true;
                 btnSalvar.Enabled = false;
                 btnNovo.Enabled = false;
-
 
                 id = grid.CurrentRow.Cells[0].Value.ToString();
                 txt_Nome.Text = grid.CurrentRow.Cells[1].Value.ToString();
@@ -257,6 +275,7 @@ namespace PDV.cadastros
             }
         }
 
+        // Cancelar a edição ou adição de um novo funcionário
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             btnEditar.Enabled = false;
@@ -267,8 +286,10 @@ namespace PDV.cadastros
             LimparCampos();
         }
 
+        // Editar dados do funcionário
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            // Verificar campos obrigatórios e validações
             if (txt_Nome.Text.ToString().Trim() == "")
             {
                 MessageBox.Show("Preencha o campo nome", "Cadastro funcionários", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -289,8 +310,7 @@ namespace PDV.cadastros
                 return;
             }
 
-
-            //botao editar
+            // Atualizar os dados do funcionário no banco de dados
             con.AbrirConexao();
             if (alterouImagem == "sim")
             {
@@ -306,7 +326,7 @@ namespace PDV.cadastros
             }
             else if (alterouImagem == "não")
             {
-                sql = "UPDATE funcionarios SET nome = @nome, cpf = @cpf, endereco = @endereco, telefone = @telefone, cargo = @cargo where id = @id";
+                sql = "UPDATE funcionarios SET nome = @nome, cpf = @cpf, endereco = @endereco, telefone = @telefone, cargo = @cargo WHERE id = @id";
                 cmd = new MySqlCommand(sql, con.con);
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@nome", txt_Nome.Text);
@@ -316,7 +336,7 @@ namespace PDV.cadastros
                 cmd.Parameters.AddWithValue("@cargo", cb_Cargo.Text);
             }
 
-            //Verificar se cpf ja existe
+            // Verificar se o novo CPF já existe
             if (txt_Cpf.Text != cpfAntigo)
             {
                 MySqlCommand cmdVerificar;
@@ -349,6 +369,7 @@ namespace PDV.cadastros
             alterouImagem = "não"; //p/ uso de editar imagem
         }
 
+        // Excluir dados do funcionário
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             var res = MessageBox.Show("Deseja realmente excluir o registro!", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -362,7 +383,7 @@ namespace PDV.cadastros
                 con.FecharConexao();
             }
 
-            MessageBox.Show("Registro Excluído com sucesso!", "Cadastro Funcionários", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Registro Excluído com sucesso!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btnNovo.Enabled = true;
             btnEditar.Enabled = false;
             btnExcluir.Enabled = false;
@@ -373,9 +394,18 @@ namespace PDV.cadastros
             Listar();
         }
 
+        // Selecionar uma foto para o funcionário (outro botão de foto)
         private void btnFoto_Click_1(object sender, EventArgs e)
         {
-
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Imagens(*.jpg; *.png) | *.jpg;*.png";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                foto = dialog.FileName; // Obter o caminho completo do arquivo selecionado
+                image.ImageLocation = foto; // Exibir a imagem no PictureBox
+                alterouImagem = "sim";
+            }
         }
+
     }
 }

@@ -25,10 +25,10 @@ namespace PDV
             InitializeComponent();
             random = new Random();
             btnCloseChildForm.Visible = false;
-            this.Text = string.Empty;
-            this.ControlBox = false;
+            //this.Text = string.Empty;
+            //this.ControlBox = false;
 
-            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -101,15 +101,17 @@ namespace PDV
             //openChildForm(new cadastros.FrmProdutos(), sender);
         }
 
-        private void btnUsuarios_Click(object sender, EventArgs e)
+        private void btnFuncionarios_Click(object sender, EventArgs e)
         {
             openChildForm(new cadastros.FrmFuncionarios(), sender);
+            menuPrincipal.Visible = false;
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
             //ActivateButton(sender);
             openChildForm(new cadastros.FrmClientes(), sender);
+            menuPrincipal.Visible = false;
         }
 
         private void btnMovimentacoes_Click(object sender, EventArgs e)
@@ -146,28 +148,6 @@ namespace PDV
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-        private void btnFechar_Click(object sender, EventArgs e)
-        {
-            var res = MessageBox.Show("Deseja realmente Fechar O Sistema ?", "Fechar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (res == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-
-        }
-
-        private void btnMaximizar_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Normal)
-                this.WindowState = FormWindowState.Maximized;
-            else
-                this.WindowState = FormWindowState.Normal;
-        }
-
-        private void btnMinimiza_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
         }
 
         private void btnCargos_Click(object sender, EventArgs e)

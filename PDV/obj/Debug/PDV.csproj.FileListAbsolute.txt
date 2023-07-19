@@ -28,3 +28,7 @@ C:\Users\alefe\OneDrive\Documentos\Projetos-Github\Sistema-de-Controle\PDV\bin\D
 C:\Users\alefe\OneDrive\Documentos\Projetos-Github\Sistema-de-Controle\PDV\bin\Debug\MySql.Data.xml
 C:\Users\alefe\OneDrive\Documentos\Projetos-Github\Sistema-de-Controle\PDV\obj\Debug\PDV.csproj.CopyComplete
 C:\Users\alefe\OneDrive\Documentos\Projetos-Github\Sistema-de-Controle\PDV\obj\Debug\PDV.FrmLogin.resources
+C:\Users\alefe\OneDrive\Documentos\Projetos-Github\Sistema-de-Controle\PDV\obj\Debug\PDV.csproj.SuggestedBindingRedirects.cache
+C:\Users\alefe\OneDrive\Documentos\Projetos-Github\Sistema-de-Controle\PDV\obj\Debug\PDV.cadastros.FrmCategorias.resources
+C:\Users\alefe\OneDrive\Documentos\Projetos-Github\Sistema-de-Controle\PDV\obj\Debug\PDV.cadastros.FrmProdutos.resources
+C:\Users\alefe\OneDrive\Documentos\Projetos-Github\Sistema-de-Controle\PDV\obj\Debug\PDV.vendas.FrmCaixa.resources
