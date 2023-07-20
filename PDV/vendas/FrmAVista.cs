@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PDV.cadastros
+namespace PDV.vendas
 {
-    public partial class FrmCategorias : Form
+    public partial class FrmAVista : Form
     {
-        public FrmCategorias()
+        public FrmAVista()
         {
             InitializeComponent();
-        }
-
-        private void FrmCategorias_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -98,11 +98,23 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ThemeColor.cs" />
+    <Compile Include="vendas\FrmAVista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vendas\FrmAVista.Designer.cs">
+      <DependentUpon>FrmAVista.cs</DependentUpon>
+    </Compile>
     <Compile Include="vendas\FrmCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="vendas\FrmCaixa.Designer.cs">
       <DependentUpon>FrmCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vendas\FrmParcelado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vendas\FrmParcelado.Designer.cs">
+      <DependentUpon>FrmParcelado.cs</DependentUpon>
     </Compile>
     <Compile Include="Verificar.cs" />
     <EmbeddedResource Include="cadastros\FrmCargo.resx">
@@ -131,8 +143,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="vendas\FrmAVista.resx">
+      <DependentUpon>FrmAVista.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="vendas\FrmCaixa.resx">
       <DependentUpon>FrmCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vendas\FrmParcelado.resx">
+      <DependentUpon>FrmParcelado.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -197,6 +215,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cargo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\produtos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fundo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

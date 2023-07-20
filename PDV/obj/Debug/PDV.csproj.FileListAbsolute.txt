@@ -32,3 +32,5 @@ C:\Users\alefe\OneDrive\Documentos\Projetos-Github\Sistema-de-Controle\PDV\obj\D
 C:\Users\alefe\OneDrive\Documentos\Projetos-Github\Sistema-de-Controle\PDV\obj\Debug\PDV.cadastros.FrmCategorias.resources
 C:\Users\alefe\OneDrive\Documentos\Projetos-Github\Sistema-de-Controle\PDV\obj\Debug\PDV.cadastros.FrmProdutos.resources
 C:\Users\alefe\OneDrive\Documentos\Projetos-Github\Sistema-de-Controle\PDV\obj\Debug\PDV.vendas.FrmCaixa.resources
+C:\Users\alefe\OneDrive\Documentos\Projetos-Github\Sistema-de-Controle\PDV\obj\Debug\PDV.vendas.FrmAVista.resources
+C:\Users\alefe\OneDrive\Documentos\Projetos-Github\Sistema-de-Controle\PDV\obj\Debug\PDV.vendas.FrmParcelado.resources

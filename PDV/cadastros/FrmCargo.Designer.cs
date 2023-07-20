@@ -138,7 +138,7 @@ namespace PDV.cadastros
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(854, 495);
+            this.ClientSize = new System.Drawing.Size(898, 513);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnExcluir);
@@ -148,7 +148,7 @@ namespace PDV.cadastros
             this.Controls.Add(this.txt_Nome);
             this.Controls.Add(this.label1);
             this.Name = "FrmCargo";
-            this.Text = "Cargos";
+            this.Text = "Cadastros de Cargos";
             this.Load += new System.EventHandler(this.FrmCargo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);

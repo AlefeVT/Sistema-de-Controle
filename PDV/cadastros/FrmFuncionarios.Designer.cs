@@ -41,12 +41,12 @@ namespace PDV.cadastros
             this.btnNovo = new System.Windows.Forms.Button();
             this.cb_Cargo = new System.Windows.Forms.ComboBox();
             this.txt_Nome = new System.Windows.Forms.TextBox();
-            this.image = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.image = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.SuspendLayout();
@@ -54,21 +54,21 @@ namespace PDV.cadastros
             // grid
             // 
             this.grid.AccessibleName = "";
-            this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(67)))), ((int)(((byte)(92)))));
+            this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(178)))), ((int)(((byte)(191)))));
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid.Location = new System.Drawing.Point(13, 208);
+            this.grid.Location = new System.Drawing.Point(14, 202);
             this.grid.Margin = new System.Windows.Forms.Padding(2);
             this.grid.Name = "grid";
             this.grid.RowHeadersWidth = 51;
             this.grid.RowTemplate.Height = 24;
             this.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid.Size = new System.Drawing.Size(831, 219);
+            this.grid.Size = new System.Drawing.Size(968, 256);
             this.grid.TabIndex = 47;
             this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(268, 453);
+            this.btnCancelar.Location = new System.Drawing.Point(403, 462);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(88, 31);
@@ -80,36 +80,39 @@ namespace PDV.cadastros
             // txt_Endereco
             // 
             this.txt_Endereco.Enabled = false;
-            this.txt_Endereco.Location = new System.Drawing.Point(74, 94);
+            this.txt_Endereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Endereco.Location = new System.Drawing.Point(91, 72);
             this.txt_Endereco.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Endereco.Name = "txt_Endereco";
-            this.txt_Endereco.Size = new System.Drawing.Size(395, 20);
+            this.txt_Endereco.Size = new System.Drawing.Size(395, 24);
             this.txt_Endereco.TabIndex = 35;
             // 
             // txt_Telefone
             // 
             this.txt_Telefone.Enabled = false;
-            this.txt_Telefone.Location = new System.Drawing.Point(74, 62);
+            this.txt_Telefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Telefone.Location = new System.Drawing.Point(579, 72);
             this.txt_Telefone.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Telefone.Mask = "(99) 00000-0000";
             this.txt_Telefone.Name = "txt_Telefone";
-            this.txt_Telefone.Size = new System.Drawing.Size(79, 20);
+            this.txt_Telefone.Size = new System.Drawing.Size(121, 24);
             this.txt_Telefone.TabIndex = 33;
             // 
             // txt_Cpf
             // 
             this.txt_Cpf.Enabled = false;
-            this.txt_Cpf.Location = new System.Drawing.Point(553, 27);
+            this.txt_Cpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Cpf.Location = new System.Drawing.Point(579, 27);
             this.txt_Cpf.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Cpf.Mask = "000.000.000-00";
             this.txt_Cpf.Name = "txt_Cpf";
-            this.txt_Cpf.Size = new System.Drawing.Size(79, 20);
+            this.txt_Cpf.Size = new System.Drawing.Size(112, 24);
             this.txt_Cpf.TabIndex = 32;
             // 
             // btnFoto
             // 
             this.btnFoto.Enabled = false;
-            this.btnFoto.Location = new System.Drawing.Point(733, 155);
+            this.btnFoto.Location = new System.Drawing.Point(843, 155);
             this.btnFoto.Margin = new System.Windows.Forms.Padding(2);
             this.btnFoto.Name = "btnFoto";
             this.btnFoto.Size = new System.Drawing.Size(76, 31);
@@ -121,7 +124,7 @@ namespace PDV.cadastros
             // btnExcluir
             // 
             this.btnExcluir.Enabled = false;
-            this.btnExcluir.Location = new System.Drawing.Point(512, 453);
+            this.btnExcluir.Location = new System.Drawing.Point(527, 462);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(2);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(88, 31);
@@ -133,7 +136,7 @@ namespace PDV.cadastros
             // btnEditar
             // 
             this.btnEditar.Enabled = false;
-            this.btnEditar.Location = new System.Drawing.Point(391, 453);
+            this.btnEditar.Location = new System.Drawing.Point(266, 462);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(88, 31);
@@ -145,7 +148,7 @@ namespace PDV.cadastros
             // btnSalvar
             // 
             this.btnSalvar.Enabled = false;
-            this.btnSalvar.Location = new System.Drawing.Point(136, 453);
+            this.btnSalvar.Location = new System.Drawing.Point(141, 462);
             this.btnSalvar.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(88, 31);
@@ -156,7 +159,7 @@ namespace PDV.cadastros
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(13, 453);
+            this.btnNovo.Location = new System.Drawing.Point(19, 462);
             this.btnNovo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(88, 31);
@@ -168,27 +171,89 @@ namespace PDV.cadastros
             // cb_Cargo
             // 
             this.cb_Cargo.Enabled = false;
+            this.cb_Cargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_Cargo.FormattingEnabled = true;
-            this.cb_Cargo.Location = new System.Drawing.Point(553, 63);
+            this.cb_Cargo.Location = new System.Drawing.Point(91, 111);
             this.cb_Cargo.Margin = new System.Windows.Forms.Padding(2);
             this.cb_Cargo.Name = "cb_Cargo";
-            this.cb_Cargo.Size = new System.Drawing.Size(121, 21);
+            this.cb_Cargo.Size = new System.Drawing.Size(174, 26);
             this.cb_Cargo.TabIndex = 34;
             // 
             // txt_Nome
             // 
             this.txt_Nome.Enabled = false;
-            this.txt_Nome.Location = new System.Drawing.Point(74, 27);
+            this.txt_Nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Nome.Location = new System.Drawing.Point(91, 27);
             this.txt_Nome.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Nome.Name = "txt_Nome";
-            this.txt_Nome.Size = new System.Drawing.Size(395, 20);
+            this.txt_Nome.Size = new System.Drawing.Size(395, 24);
             this.txt_Nome.TabIndex = 30;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label7.Location = new System.Drawing.Point(507, 75);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 18);
+            this.label7.TabIndex = 43;
+            this.label7.Text = "Telefone";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(11, 75);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 18);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "Endereço";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(11, 119);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 18);
+            this.label6.TabIndex = 38;
+            this.label6.Text = "Cargo";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(507, 30);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 18);
+            this.label5.TabIndex = 37;
+            this.label5.Text = "CPF";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(11, 30);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 18);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Nome";
             // 
             // image
             // 
             this.image.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.image.Image = global::PDV.Properties.Resources.sem_foto;
-            this.image.Location = new System.Drawing.Point(708, 11);
+            this.image.Location = new System.Drawing.Point(815, 11);
             this.image.Margin = new System.Windows.Forms.Padding(2);
             this.image.Name = "image";
             this.image.Size = new System.Drawing.Size(136, 140);
@@ -196,67 +261,12 @@ namespace PDV.cadastros
             this.image.TabIndex = 46;
             this.image.TabStop = false;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(10, 66);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 13);
-            this.label7.TabIndex = 43;
-            this.label7.Text = "Telefone";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(11, 97);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 13);
-            this.label3.TabIndex = 41;
-            this.label3.Text = "Endereço";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(497, 66);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 38;
-            this.label6.Text = "Cargo";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(497, 29);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(27, 13);
-            this.label5.TabIndex = 37;
-            this.label5.Text = "CPF";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(10, 29);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Nome";
-            // 
             // FrmFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(854, 495);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(178)))), ((int)(((byte)(191)))));
+            this.ClientSize = new System.Drawing.Size(997, 513);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.txt_Endereco);
@@ -276,7 +286,7 @@ namespace PDV.cadastros
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.Name = "FrmFuncionarios";
-            this.Text = "Funcionarios";
+            this.Text = "Cadastro de Funcionarios";
             this.Load += new System.EventHandler(this.FrmFuncionarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();

@@ -49,41 +49,13 @@ namespace PDV
             string color = ThemeColor.ColorList[index];
             return ColorTranslator.FromHtml(color);
         }
-        private void ActivateButton(object btnSender)
-        {
-            if (btnSender != null)
-            {
-                if (currentButton != (Button)btnSender)
-                {
-                    DisableButton();
-                    Color color = SelectThemeColor();
-                    currentButton = (Button)btnSender;
-                    currentButton.BackColor = color;
-                    currentButton.ForeColor = Color.White;
-                    currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    btnCloseChildForm.Visible = true;
-                }
-            }
-        }
-        private void DisableButton()
-        {
-            foreach (Control previousBtn in panelMenu.Controls)
-            {
-                if (previousBtn.GetType() == typeof(Button))
-                {
-                    previousBtn.BackColor = Color.FromArgb(45, 67, 96);
-                    previousBtn.ForeColor = Color.Gainsboro;
-                    previousBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                }
-            }
-        }
+
         private void openChildForm(Form childForm, object btnSender)
         {
             if (activeForm != null)
             {
                 activeForm.Close();
             }
-            ActivateButton(btnSender);
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -93,66 +65,70 @@ namespace PDV
             childForm.BringToFront();
             childForm.Show();
             lblTitle.Text = childForm.Text;
+            btnCloseChildForm.Visible = true;
         }
 
-        private void btnProduto_Click(object sender, EventArgs e)
+        private void btnCadastroProduto_Click(object sender, EventArgs e)
         {
-            //ActivateButton(sender);
-            //openChildForm(new cadastros.FrmProdutos(), sender);
+            openChildForm(new cadastros.FrmProdutos(), sender);
+            menuPrincipal.Visible = false;
         }
 
-        private void btnFuncionarios_Click(object sender, EventArgs e)
+        private void btnCadastrarFuncionario_Click(object sender, EventArgs e)
         {
             openChildForm(new cadastros.FrmFuncionarios(), sender);
             menuPrincipal.Visible = false;
         }
-
-        private void btnClientes_Click(object sender, EventArgs e)
+        private void btnCadastroCategoria_Click(object sender, EventArgs e)
         {
-            //ActivateButton(sender);
+            openChildForm(new cadastros.FrmCategorias(), sender);
+            menuPrincipal.Visible = false;
+        }
+        private void btnCadastroCargo_Click(object sender, EventArgs e)
+        {
+            openChildForm(new cadastros.FrmCargo(), sender);
+            menuPrincipal.Visible = false;
+        }
+
+        private void btnCadastroCliente_Click(object sender, EventArgs e)
+        {
             openChildForm(new cadastros.FrmClientes(), sender);
             menuPrincipal.Visible = false;
         }
 
-        private void btnMovimentacoes_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-        }
-
         private void btnCaixa_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            openChildForm(new vendas.FrmCaixa(), sender);
+            menuPrincipal.Visible = false;
         }
 
         private void btnRelatorios_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
         }
 
         private void btnCloseChildForm_Click(object sender, EventArgs e)
         {
             if (activeForm != null)
+            {
                 activeForm.Close();
-
-            Reset();
+                activeForm = null; // Definir activeForm como null para indicar que nenhum formulário está aberto
+                lblTitle.Text = "HOME"; // Restaurar o título para "HOME" quando nenhum formulário está aberto
+                btnCloseChildForm.Visible = false; // Esconde o botão de fechar quando nenhum formulário está aberto
+                menuPrincipal.Visible = true;
+            }
         }
         private void Reset()
         {
-            DisableButton();
+            //DisableButton();
             lblTitle.Text = "HOME";
             currentButton = null;
-            btnCloseChildForm.Visible = false;
+            btnCloseChildForm.Visible = true;
         }
 
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-        private void btnCargos_Click(object sender, EventArgs e)
-        {
-            openChildForm(new cadastros.FrmCargo(), sender);
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
@@ -162,6 +138,8 @@ namespace PDV
 
             lblUsuario.Text = Verificar.NomeUsuario;
             lblCargo.Text = Verificar.CargoUsuario;
+
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void timer_Tick(object sender, EventArgs e)

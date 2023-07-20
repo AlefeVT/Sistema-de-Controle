@@ -16,5 +16,9 @@ namespace PDV.cadastros
         {
             InitializeComponent();
         }
+
+        private void FrmProdutos_Load(object sender, EventArgs e)
+        {
+        }
     }
 }

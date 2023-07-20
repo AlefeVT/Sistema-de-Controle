@@ -405,7 +405,7 @@ namespace PDV.cadastros
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(1083, 495);
+            this.ClientSize = new System.Drawing.Size(1101, 513);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.imgEmail);
@@ -438,7 +438,7 @@ namespace PDV.cadastros
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.Name = "FrmClientes";
-            this.Text = "Clientes";
+            this.Text = "Cadastro de Clientes";
             this.Load += new System.EventHandler(this.FrmClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEmail)).EndInit();

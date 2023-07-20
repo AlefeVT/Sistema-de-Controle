@@ -199,7 +199,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(854, 495);
+            this.ClientSize = new System.Drawing.Size(898, 513);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.grid);
@@ -216,6 +216,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmProdutos";
             this.Text = "Cadastro de Produtos";
+            this.Load += new System.EventHandler(this.FrmProdutos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
